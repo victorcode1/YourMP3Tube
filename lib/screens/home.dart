@@ -120,7 +120,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             FloatingActionButton(
               onPressed: () async {
                 if (_downloadDirectory == '') {
-                  _downloadDirectory = await youtubeHandler.getSaveLocation();
+                  _downloadDirectory =
+                      await youtubeHandler.getSaveLocation() ?? '';
                 }
                 setState(() {
                   if (_dialogeWindowWidth == 0)
@@ -214,7 +215,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         downloadStatus != DownloadStatus.success) {
                       await Permission.storage.request();
                       startDownloading();
-                      final bool success = await youtubeHandler.downloadMP3();
+                      final bool success = await youtubeHandler.downloadMP3(
+                        (p0) {},
+                      );
                       changeDownloading(success);
                     }
                   },
