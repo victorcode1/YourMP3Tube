@@ -30,10 +30,10 @@ class _TextInputState extends State<TextInput> {
           TextField(
             controller: inputController,
             decoration: InputDecoration(
-              focusColor: Theme.of(context).accentColor,
+              focusColor: Colors.black12,
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(
-                  color: Theme.of(context).accentColor,
+                  color: Colors.black12,
                 ),
               ),
             ),
@@ -53,18 +53,18 @@ class _TextInputState extends State<TextInput> {
                     inputController.text = clipPaste!.text!;
                   });
                 },
-                child: Icon(Icons.paste),
+                child: Icon(Icons.paste, color: Colors.white),
                 style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).accentColor),
+                    backgroundColor: Theme.of(context).colorScheme.secondary),
               ),
               SizedBox(width: 50),
               ElevatedButton(
                 onPressed: () {
                   widget.onTap(inputController.text);
                 },
-                child: Icon(Icons.search),
+                child: Icon(Icons.search, color: Colors.white),
                 style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).accentColor),
+                    backgroundColor: Theme.of(context).colorScheme.secondary),
               ),
             ],
           )

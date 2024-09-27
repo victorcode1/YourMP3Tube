@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       themeMode: ThemeMode.system,
       theme: ThemeData(
-        accentColor: Colors.red.shade800,
+        hintColor: Colors.red.shade800,
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        accentColor: Colors.red.shade800,
+        hintColor: Colors.red.shade800,
         brightness: Brightness.dark,
       ),
       home: Home(),

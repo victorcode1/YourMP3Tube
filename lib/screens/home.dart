@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
-import '/widgets/text_input.dart';
-import '/utilities/youtube_util.dart';
-import '/utilities/download_status.dart';
+
 import '/models/video_data.dart';
+import '/utilities/download_status.dart';
+import '/utilities/youtube_util.dart';
+import '/widgets/text_input.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -199,7 +200,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     left: 15,
                   ),
                   child: Text("Inser URL:",
-                      style: TextStyle(color: Theme.of(context).accentColor)),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.secondary)),
                 ),
               ),
               TextInput(onTap: setUrl),
@@ -222,12 +224,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                               .animate(_animationController),
                           child: Icon(Icons.hourglass_empty, size: 60))
                       : (downloadStatus == DownloadStatus.ready)
-                          ? Icon(Icons.download, size: 60)
+                          ? Icon(Icons.download, size: 60, color: Colors.white)
                           : (downloadStatus == DownloadStatus.success)
-                              ? Icon(Icons.done, size: 60)
-                              : Icon(Icons.close, size: 60),
+                              ? Icon(Icons.done, size: 60, color: Colors.green)
+                              : Icon(Icons.close, size: 60, color: Colors.red),
                   style: ElevatedButton.styleFrom(
-                      primary: Theme.of(context).accentColor,
+                      backgroundColor: Theme.of(context).colorScheme.secondary,
                       shape: CircleBorder(),
                       padding: EdgeInsets.all(15)),
                 ),
