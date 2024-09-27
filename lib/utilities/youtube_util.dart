@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
@@ -116,8 +117,9 @@ class YoutubeUtil {
 
       print("Everything is fine!");
       return true;
-    } catch (e) {
+    } catch (e,s) {
       print("Something went wrong.");
+      debugPrintStack(stackTrace: s);
       return false;
     }
   }
